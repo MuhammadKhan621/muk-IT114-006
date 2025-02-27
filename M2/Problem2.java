@@ -21,9 +21,11 @@ public class Problem2 extends BaseClass {
         double total = 0;
         // Start Solution Edits
         // Solve Challenge 1 here
+                                            //UCID = muk
+                                            //date = 2/19/25
         for(int i = 0; i < arr.length; i++){ //iterate through the array
             total += arr[i];                // make the values inside array arr equal total
-        }
+        }                                   
         // Solve Challenge 2 here
         DecimalFormat Deciform = new DecimalFormat("0.00");
         String formated = Deciform.format(total);

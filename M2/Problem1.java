@@ -18,9 +18,9 @@ public class Problem1 extends BaseClass {
                                                 //Ucid = muk
         String commas = "";                     //date = 2/13/25
         for (int i = 0; i < arr.length; i++) {  //Iterate over arr
-            if (arr[i] % 2 != 0){               // check if value is odd        // separated by commas
+            if (arr[i] % 2 != 0){               // check if value is odd        
                 System.out.print(commas + arr[i]);     // print value
-                commas = ", ";
+                commas = ", ";                          // separated by commas
         }
         }
         

@@ -17,6 +17,9 @@ public class Problem3 extends BaseClass {
         // Step 3: Add code to solve the problem (add/commit as needed)
         Object[] output = new Object[arr.length];
         // Start Solution Edits
+
+                                            //UCID = muk
+                                            //2/19/2025
         for(int i = 0; i < arr.length; i++){ //iterate through array
              if (arr[i] instanceof Integer){ 
              output[i]  = Math.abs((Integer) arr[i]);  //use Math.abs to make each value positive
