@@ -35,22 +35,22 @@ public class CommandLineCalculator extends BaseClass {
             
            //extracting the equation 
            double num1 = Double.parseDouble(args[0]); // for num 1
-           String operator = args[1];            // for using either + or -    .parsDouble used to
-           double num2 = Double.parseDouble(args[2]); // for num 2                  turn nums into decimaled numbers
+           String operator = args[1];            // for using either + or -   (.parsDouble used to
+           double num2 = Double.parseDouble(args[2]); // for num 2             turn nums are output right)
 
            
-           double total = 0;
+           double total = 0;   //initialize variable total
            if (operator.equals ("+")) {   //check if the operator is +
-            total = num1 + num2; }                  //add num1 and num2 and make it equal total
-           else if (operator.equals("-")) {
-            total = num1 - num2; }
+            total = num1 + num2; }                  //add num1 and num2
+           else if (operator.equals("-")) { //check if nums are -
+            total = num1 - num2; }                   //subtract num 1 and num 2
             else {
-                System.out.println("Please enter the right format and numbers");
-                return;
+                System.out.println("Please enter the right format and numbers"); //if the right format
+                                                                            //is not entered  
             }
 
-            DecimalFormat df = new DecimalFormat("0.00");
-            System.out.println(df.format(total));
+            DecimalFormat df = new DecimalFormat("0.00"); //DecimalFormat is used to ensure decimal
+            System.out.println(df.format(total));                 //display as the longest decimal passed
             
             //step 1 get the data.
             

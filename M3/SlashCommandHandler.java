@@ -13,11 +13,12 @@ Challenge 2: Simple Slash Command Handler
 - Print errors for invalid command formats (when applicable)
 - Capture 3 variations of each command except "/quit"
 */
-
+import java.util.random.*;
 import java.util.Scanner;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 public class SlashCommandHandler extends BaseClass {
-    private static String ucid = "mt85"; // <-- change to your UCID
+    private static String ucid = "muk"; // <-- change to your UCID
 
     public static void main(String[] args) {
         printHeader(ucid, 2, "Objective: Implement a simple slash command parser.");
@@ -25,33 +26,69 @@ public class SlashCommandHandler extends BaseClass {
         Scanner scanner = new Scanner(System.in);
 
         // Can define any variables needed here
-
+        int result = 0;
+        
         while (true) {
             System.out.print("Enter command: ");
             // get entered text
-
+            
+            String input = scanner.nextLine(); //Reading user input with scanner
             // check if greet
             //// process greet
-
+            if (input.matches("/greet ")) {  //if input equals /greet
+                System.out.println("Hello, " input + "!"); //print this message
+            }
             // check if roll
-            //// process roll
-            //// handle invalid formats
+            else if(input.matches("/roll ")){  //check if command starts with /roll
+                int numDice = Integer.parseInt();  //number of dice
+                int sides = Integer.parseInt(); //number of sides
 
+            
+            
+             //// process roll
+            
+            Random rand = new Random();
+    
+            for (int i = 0; i < numDice; i++){
+                result += rand.nextInt(sides); //roll the die
+            }
+
+            System.out.println("Rolled" + numDice + "d" + sides + "and got" + result + "!");
+
+
+            }
+                
+
+            //// handle invalid formats
+           
+
+
+
+            }
             // check if echo
             //// process echo
-
+            else if(input.matches("/echo ")){
+                
+                System.out.println();
+            }
             // check if quit
+
+            else if (input.matches("/quit")){
+                System.out.println("Program Ended");
+            }
             //// process quit
 
             // handle invalid commnads
-
+            else {
+                System.out.println("Invalid command"); //invalid input
+                break; 
+           }
             // delete this condition/block, it's just here so the sample runs without edits
-            if (1 == 1) {
-                System.out.println("Breaking loop");
-                break;
+            
             }
         }
-
+    
+    
         printFooter(ucid, 2);
         scanner.close();
     }
