@@ -102,6 +102,12 @@ public class Client {
             String[] parts = text.trim().replaceAll(" +", " ").split(" ")[1].split(":");
             connect(parts[0].trim(), Integer.parseInt(parts[1].trim()));
             return true;
+        
+        } else if ("/pm".equalsIgnoreCase(text)) {
+            System.out.println(text);
+            return true;
+        
+        
         } else if ("/quit".equalsIgnoreCase(text)) {
             isRunning = false;
             return true;

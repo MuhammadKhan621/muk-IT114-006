@@ -81,9 +81,12 @@ public class Client {
         return ipMatcher.matches() || localhostMatcher.matches();
     }
 
+
+
     /**
      * Controller for handling various text commands.
      * <p>
+     * 
      * Add more here as needed
      * </p>
      * 
@@ -98,6 +101,11 @@ public class Client {
             String[] parts = text.trim().replaceAll(" +", " ").split(" ")[1].split(":");
             connect(parts[0].trim(), Integer.parseInt(parts[1].trim()));
             return true;
+        
+        } else if ("/flip".equalsIgnoreCase(text)){ // check to see if flip command is used
+            System.out.println(text); 
+            return true;
+        
         } else if ("/quit".equalsIgnoreCase(text)) {
             isRunning = false;
             return true;

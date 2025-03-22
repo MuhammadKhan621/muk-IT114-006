@@ -27,8 +27,8 @@ public class SlashCommandHandler extends BaseClass {
 
         // Can define any variables needed here
         int result = 0;
-        
-        while (true) {
+                                                        //Ucid = muk
+        while (true) {                                  //Date 2/27/25
             System.out.print("Enter command: ");
             // get entered text
             
@@ -42,9 +42,6 @@ public class SlashCommandHandler extends BaseClass {
             else if(input.matches("/roll ")){  //check if command starts with /roll
                 int numDice = Integer.parseInt();  //number of dice
                 int sides = Integer.parseInt(); //number of sides
-
-            
-            
              //// process roll
             
             Random rand = new Random();
@@ -54,16 +51,8 @@ public class SlashCommandHandler extends BaseClass {
             }
 
             System.out.println("Rolled" + numDice + "d" + sides + "and got" + result + "!");
-
-
-            }
-                
-
+            }    
             //// handle invalid formats
-           
-
-
-
             }
             // check if echo
             //// process echo
@@ -72,12 +61,10 @@ public class SlashCommandHandler extends BaseClass {
                 System.out.println();
             }
             // check if quit
-
             else if (input.matches("/quit")){
                 System.out.println("Program Ended");
             }
             //// process quit
-
             // handle invalid commnads
             else {
                 System.out.println("Invalid command"); //invalid input
