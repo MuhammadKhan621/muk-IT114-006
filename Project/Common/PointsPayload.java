@@ -2,9 +2,11 @@ package Project.Common;
 
 public class PointsPayload extends Payload {
     
-    int points;
+   private int points;
 
-
+   public PointsPayload() {
+    setPayloadType(PayloadType.POINTS);
+   }
 
 
 
@@ -18,7 +20,7 @@ public class PointsPayload extends Payload {
 
 
     public String toString() {
-        return "points" + points;
+        return super.toString() + String.format(" points=%d", points);
     }
 
 

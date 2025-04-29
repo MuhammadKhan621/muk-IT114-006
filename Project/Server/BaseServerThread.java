@@ -1,11 +1,12 @@
 package Project.Server;
 
-import Project.Client.User;
-import Project.Common.Payload;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+
+import Project.Common.Payload;
+import Project.Common.User;
 
 /**
  * Base class the handles the underlying connection between Client and
@@ -16,7 +17,7 @@ public abstract class BaseServerThread extends Thread {
     protected boolean isRunning = false; // control variable to stop this thread
     protected ObjectOutputStream out; // exposed here for send()
     protected Socket client; // communication directly to "my" client
-    private User user = new User();
+    protected User user = new User();
     protected Room currentRoom;
 
     /**
