@@ -48,7 +48,7 @@ public class ClientUI extends JFrame implements IConnectionEvents, IMessageEvent
     private RoomsPanel roomsPanel;
     private JLabel roomLabel = new JLabel();
 
-    {
+    static {
         // Note: Moved from Client as this file is the entry point now
         // statically initialize the client-side LoggerUtil
         LoggerUtil.LoggerConfig config = new LoggerUtil.LoggerConfig();
@@ -181,7 +181,7 @@ public class ClientUI extends JFrame implements IConnectionEvents, IMessageEvent
 
             try {
 
-                new ClientUI("MT85-Client");
+                new ClientUI("muk-Client");
 
             } catch (Throwable t) {
                 LoggerUtil.INSTANCE.severe("Unhandled exception in main thread", t);

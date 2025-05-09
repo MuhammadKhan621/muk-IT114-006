@@ -6,6 +6,21 @@ public class User {
     private boolean isReady = false;
     private boolean tookTurn = false;
     private int points = 0;
+    private String choice;
+
+
+
+
+
+    //UCID muk made a getter and setter for choice
+
+    public String getChoice() {
+        return choice;
+    }
+
+    public void setChoice(String choice) {
+        this.choice = choice;
+    }
 
     /**
      * @return the points
@@ -63,6 +78,8 @@ public class User {
     public String getDisplayName() {
         return String.format("%s#%s", this.clientName, this.clientId);
     }
+
+
 
     public boolean isReady() {
         return isReady;

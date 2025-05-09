@@ -267,7 +267,20 @@ public enum Client {
                 text = text.replace(Command.REVERSE.command, "").trim();
                 sendReverse(text);
                 wasCommand = true;
-            } else if (text.startsWith(Command.CREATE_ROOM.command)) {
+            } 
+            
+                //UCID muk
+                //pick command
+              else if (text.startsWith(Command.PICK.command)) {
+                text = text.replace(Command.PICK.command, "").trim();
+                sendPick(text);
+                wasCommand = true;
+              }
+            
+            
+                
+            
+                else if (text.startsWith(Command.CREATE_ROOM.command)) {
                 text = text.replace(Command.CREATE_ROOM.command, "").trim();
                 if (text == null || text.length() == 0) {
                     LoggerUtil.INSTANCE
@@ -360,6 +373,49 @@ public enum Client {
         }
         sendToServer(payload);
     }
+
+
+//UCID = muk
+
+//////////////////////////////
+    private void sendRock(String message) throws IOException {
+        Payload payload = new Payload();
+        payload.setMessage("ROCK");
+        payload.setPayloadType(PayloadType.RPS);
+        sendToServer(payload);
+    
+    }
+
+    //send a Paper message to the server
+
+    private void sendPaper(String message) throws IOException {
+        Payload payload = new Payload();
+        payload.setMessage("Paper");
+        payload.setPayloadType(PayloadType.RPS);
+        sendToServer(payload);
+    
+    }
+
+    //send a Scissor message to the server
+
+    private void sendScissor(String message) throws IOException {
+        Payload payload = new Payload();
+        payload.setMessage("Scissor");
+        payload.setPayloadType(PayloadType.RPS);
+        sendToServer(payload);
+    
+    }
+
+    //send a Pick message to the server
+
+    private void sendPick(String message) throws IOException {
+        Payload payload = new Payload();
+        payload.setMessage(message);
+        payload.setPayloadType(PayloadType.PICK);
+        sendToServer(payload);
+    }
+////////////////////////////////////////////////////////////////////////
+
 
     /**
      * Sends a reverse message action to the server
@@ -528,6 +584,13 @@ public enum Client {
             case PayloadType.POINTS:
                 processPoints(payload);
                 break;
+
+
+            //UCID muk
+            //created the case for Pick
+            
+            case PayloadType.PICK:
+                processPick(payload);
             default:
                 LoggerUtil.INSTANCE.warning(TextFX.colorize("Unhandled payload type", Color.YELLOW));
                 break;
@@ -852,6 +915,27 @@ public enum Client {
         }
     }
 
+
+    //UCID = muk
+
+
+    private void processPick(Payload payload) {
+        LoggerUtil.INSTANCE.info(TextFX.colorize(payload.getMessage(), Color.RED));
+        try {
+            events.forEach(event -> {
+                if (event instanceof IMessageEvents) {
+                    ((IMessageEvents) event).onMessageReceive(payload.getClientId(), payload.getMessage());
+                }
+            });
+        }   catch (Exception e) {
+            LoggerUtil.INSTANCE.severe("Error processing pick message");
+        }
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     private void processMessage(Payload payload) {
         LoggerUtil.INSTANCE.info(TextFX.colorize(payload.getMessage(), Color.BLUE));
         try {
@@ -861,7 +945,7 @@ public enum Client {
                 }
             });
         } catch (Exception e) {
-            LoggerUtil.INSTANCE.severe("Error processing message", e);
+            LoggerUtil.INSTANCE.severe("Error processing pick message", e);
         }
     }
 
