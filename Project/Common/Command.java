@@ -8,6 +8,7 @@ public enum Command {
     LOGOUT("logout"),
     LOGOFF("logoff"),
     REVERSE("reverse"),
+    PICK("pick"),
     CREATE_ROOM("createroom"),
     LEAVE_ROOM("leaveroom"),
     JOIN_ROOM("joinroom"),
@@ -15,7 +16,9 @@ public enum Command {
     LIST_USERS("users"),
     LIST_ROOMS("listrooms"),
     READY("ready"),
-    DO_SOMETHING("something"),;
+    DO_SOMETHING("something"),
+    USE("use"),;
+    
 
     private static final HashMap<String, Command> BY_COMMAND = new HashMap<>();
     static {

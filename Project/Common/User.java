@@ -5,6 +5,47 @@ public class User {
     private String clientName;
     private boolean isReady = false;
     private boolean tookTurn = false;
+    private int points = 0;
+    private String choice;
+
+
+
+
+
+    //UCID muk made a getter and setter for choice
+
+    public String getChoice() {
+        return choice;
+    }
+
+    public void setChoice(String choice) {
+        this.choice = choice;
+    }
+
+    /**
+     * @return the points
+     */
+    public int getPoints() {
+        return points;
+    }
+
+    /**
+     * @param points the points to apply (positive or negative)
+     * 
+     */
+    public void changePoints(int points) {
+        this.points += points;
+        if (this.points < 0) {
+            this.points = 0;
+        }
+    }
+
+    /**
+     * @param points the points to set
+     */
+    public void setPoints(int points) {
+        this.points = points;
+    }
 
     /**
      * @return the clientId
@@ -37,6 +78,8 @@ public class User {
     public String getDisplayName() {
         return String.format("%s#%s", this.clientName, this.clientId);
     }
+
+
 
     public boolean isReady() {
         return isReady;
