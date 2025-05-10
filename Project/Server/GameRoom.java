@@ -181,8 +181,20 @@ public class GameRoom extends BaseGameRoom {
         resetRoundTimer(); // reset timer if round ended without the time expiring
 
         
-        
-
+         
+        //UCID muk
+        // Using the Winner method
+       
+       
+       // int result = Winner(user1.getChoice, user2.getChoice) 
+       // if (result == 1) {
+         //   System.out.println(user1.getclientID() + "You won!" + user2.getClientID());
+       // } else if (result == -1) {
+         //   System.out.println(user1.getclientID() + "You lost..." + user2.getClientId) 
+      //  } else {
+      //        System.out.println("Its a tie");
+       //   }
+            
         
     
 
